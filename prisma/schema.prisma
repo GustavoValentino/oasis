@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js" // Use "prisma-client-js" ao invés de "prisma-client" (Embora o prisma corrija, é melhor ser explícito)
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- Modelos para o Chat ---
+
+// 1. Sessão de Chat (Representa uma conversa)
+model ChatSession {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Opcional: Adicionar um campo para identificar o usuário
+  userId String?
+
+  // Relacionamento com as Mensagens
+  messages Message[]
+}
+
+// 2. Mensagem (Armazena o conteúdo, quem enviou e o relacionamento com a sessão)
+model Message {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+
+  // Quem enviou a mensagem: 'user' ou 'gemini'
+  role String
+
+  content String @db.Text
+
+  // Relacionamento com a sessão de chat
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [id])
+}
+
+model AgencyService {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String   @db.Text
+  price       String?
+  category    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          String @id @default(uuid())
+  title       String
+  description String @db.Text
+  category    String
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  email     String?  // Já existia no seu erro
+  project   String?  // Já existia no seu erro
+  status    String   @default("Novo") // Já existia no seu erro
+  aiSummary String?  // <--- O CAMPO NOVO DEVE ESTAR AQUI
+  createdAt DateTime @default(now())
+}

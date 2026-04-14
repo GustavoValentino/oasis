@@ -1,0 +1,711 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+/* --- CONFIGURAÇÃO PARA MANTER SUA HOME PRETA --- */
+:root {
+  /* Fundo do Dashboard e da Home */
+  --background: oklch(0.12 0.01 285);
+  --foreground: oklch(0.98 0 0);
+
+  /* Cards do Dashboard (mais claros que o fundo para dar profundidade) */
+  --card: oklch(0.16 0.01 285);
+  --card-foreground: oklch(0.98 0 0);
+
+  /* Bordas sutis */
+  --border: oklch(0.25 0.01 285);
+  --input: oklch(0.25 0.01 285);
+
+  /* Cor de destaque (Azul BrainCore) */
+  --primary: oklch(0.6 0.18 250);
+  --primary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.2 0.01 285);
+  --muted-foreground: oklch(0.7 0.01 285);
+
+  --accent: oklch(0.25 0.01 285);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --radius: 0.75rem;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Epilogue", sans-serif;
+}
+
+body {
+  background-color: #000;
+}
+
+@theme {
+  --color-primary: #3b82f6;
+
+  @keyframes eqBar1 {
+    0%,
+    100% {
+      height: 20%;
+    }
+    50% {
+      height: 90%;
+    }
+  }
+
+  @keyframes eqBar2 {
+    0%,
+    100% {
+      height: 40%;
+    }
+    50% {
+      height: 100%;
+    }
+  }
+
+  @keyframes eqBar3 {
+    0%,
+    100% {
+      height: 70%;
+    }
+    50% {
+      height: 30%;
+    }
+  }
+
+  @keyframes eqBar4 {
+    0%,
+    100% {
+      height: 30%;
+    }
+    50% {
+      height: 80%;
+    }
+  }
+
+  @keyframes pulseRing {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes bubbleOne {
+    0% {
+      bottom: -20%;
+      right: -10%;
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      bottom: 0;
+      right: 0;
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    100% {
+      bottom: 0;
+      right: 0;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bubbleTwo {
+    0% {
+      bottom: 0px;
+      left: -40%;
+      opacity: 0;
+      transform: scale(0.25);
+    }
+    50% {
+      bottom: 30%;
+      left: 0px;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    100% {
+      bottom: 30%;
+      left: 0px;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes bubbleThree {
+    0% {
+      bottom: 30%;
+      left: 30%;
+      opacity: 0;
+      transform: scale(0.35);
+    }
+    50% {
+      bottom: 63%;
+      left: 57%;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    100% {
+      bottom: 63%;
+      left: 57%;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes novaCtaCircle {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.85);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes novaCtaCircleTwo {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.75);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes onovaCtaCircleThree {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.65);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Move o conteúdo exatamente 50% para a esquerda (tamanho do conteúdo duplicado) */
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    /* Aumentei a duração para 60s (mais lento, mais suave, menos chance de "quebrar" o loop) */
+    animation: marquee-scroll 20s linear infinite;
+  }
+
+  .animate-eq1 {
+    animation: eqBar1 1s infinite ease-in-out;
+  }
+
+  .animate-eq2 {
+    animation: eqBar2 1.1s infinite ease-in-out;
+  }
+
+  .animate-eq3 {
+    animation: eqBar3 0.9s infinite ease-in-out;
+  }
+
+  .animate-eq4 {
+    animation: eqBar4 1.2s infinite ease-in-out;
+  }
+
+  .novo-bubble .bubbleOne {
+    animation: 2.5s cubic-bezier(0.3, 0, 0.3, 1) 0s 1 normal forwards running
+      bubbleOne;
+  }
+
+  .novo-bubble .bubbleTwo {
+    animation: 1.5s cubic-bezier(0.3, 0, 0.3, 1) 0s 1 normal forwards running
+      bubbleTwo;
+  }
+
+  .novo-bubble .bubbleThree {
+    animation: 2s cubic-bezier(0.3, 0, 0.3, 1) 0s 1 normal forwards running
+      bubbleThree;
+  }
+}
+
+/* Custom CSS */
+
+.btn {
+  vertical-align: top;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  /* background: var(--color-primary); */
+  border: none;
+  height: 50px;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 50px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  outline: none !important;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #fff;
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.btn:hover::after {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+
+.btn:hover span {
+  color: #000;
+}
+
+.btn svg {
+  margin: 0 10px 0 -10px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 30px;
+  text-align: center;
+  padding: 3px;
+  transform: scale(0.87);
+  background-color: white;
+  color: #000;
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+  z-index: 2;
+}
+
+.btn:hover svg {
+  background-color: #000;
+  color: white;
+}
+
+.btn:hover svg {
+  transform: scale(1);
+}
+
+.btn span {
+  z-index: 2;
+  display: inline-block;
+  position: relative;
+}
+
+/* Services Section */
+
+/* .service-item {
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} */
+
+.service-item-about {
+  background-color: #000;
+}
+
+.braincore-bubble {
+  position: absolute;
+  right: 0;
+  bottom: -60px;
+  width: 142px;
+  height: 152px;
+  pointer-events: none;
+}
+
+.bubbleOne animation {
+  bottom: 0px;
+  transform: scale(1);
+  right: 0px;
+  opacity: 1;
+}
+
+.braincore-bubble .bubble-1 {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  bottom: -20%;
+  right: -10%;
+  opacity: 0;
+  transform: scale(0.3);
+  border-radius: 100%;
+  background: var(--color-primary);
+}
+
+.bubbleTwo animation {
+  bottom: 30%;
+  transform: scale(1);
+  left: 0;
+  opacity: 1;
+}
+
+.braincore-bubble .bubble-2 {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  bottom: 0;
+  left: -40%;
+  opacity: 0;
+  transform: scale(0.25);
+  border-radius: 100%;
+  background: var(--color-primary);
+}
+
+.bubbleThree animation {
+  bottom: 63%;
+  transform: scale(1);
+  left: 57%;
+  opacity: 1;
+}
+
+.braincore-bubble .bubble-3 {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: 30%;
+  left: 30%;
+  opacity: 0;
+  transform: scale(0.5);
+  border-radius: 100%;
+  background: var(--color-primary);
+}
+
+/* .service-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: -50%;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+  z-index: -1;
+} */
+
+/* .service-item:active:hover:after {
+  width: 100%;
+  height: 100%;
+} */
+
+.service-item.active .braincore-bubble .bubble-1 {
+  animation: bubbleOne 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+.service-item.active .braincore-bubble .bubble-2 {
+  animation: bubbleTwo 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+.service-item.active .braincore-bubble .bubble-3 {
+  animation: bubbleThree 2.5s cubic-bezier(0.3, 0, 0.3, 1) forwards;
+}
+
+.team-item:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 900px;
+  height: 900px;
+  scale: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -450px 0px 0px -450px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  transition: 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.team-item:hover::after {
+  scale: 1;
+}
+
+.contact {
+  background-image: url(/images/cta-bg-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.contact-image {
+  position: absolute;
+  right: 100px;
+  bottom: -100px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 100% center;
+  background-image: url(/images/novo-about-logo.png);
+}
+
+/* .cat-img-circle {
+  position: absolute;
+  background-color: var(--color-primary);
+  border-radius: 100%;
+}
+
+.img-circle--1 {
+  right: -40px;
+  top: 50px;
+  width: 140px;
+  height: 140px;
+  animation: 4.5s cubic-bezier(0.3, 0, 0.3, 1) 0s infinite normal none running
+    novaCtaCircle;
+}
+.img-circle--2 {
+  right: 150px;
+  top: -40px;
+  width: 110px;
+  height: 110px;
+  animation: 5.5s cubic-bezier(0.3, 0, 0.3, 1) 0s infinite normal none running
+    novaCtaCircleTwo;
+}
+.img-circle--3 {
+  right: 20px;
+  top: -100px;
+  width: 80px;
+  height: 80px;
+  animation: 6.5s cubic-bezier(0.3, 0, 0.3, 1) 0s infinite normal none running
+    onovaCtaCircleThree;
+} */
+
+.social-icons {
+  width: 700px;
+}
+
+@media (max-width: 1400px) {
+  .contact-image {
+    display: none;
+  }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+.social-icon:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #fff;
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.social-icon:hover:after {
+  height: 100%;
+  top: 0;
+  bottom: auto;
+}
+
+.social-icon:hover span {
+  color: #000;
+  z-index: 9;
+}
+
+.social-icon svg {
+  margin: 0 10px 0 -10px;
+  transform: scale(0.87);
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+  z-index: 2;
+}
+
+.social-icon:hover svg {
+  background-color: #000;
+  color: white;
+}
+.social-icon:hover svg {
+  transform: scale(1);
+}
+
+/* brands */
+.brand-item span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  z-index: 2;
+  opacity: 0;
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(8px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.3, 0, 0.3, 1);
+  border-radius: 0.5rem;
+}
+
+.brand-item:hover span {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  -webkit-transform: translateY(0) scale(1);
+}
+
+/* Section Banner */
+
+.section-banner {
+  background-image: url(/images/section-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.section-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* About Page */
+
+.banner {
+  background-image: url(/images/project-12.jpg);
+  background-position: top center;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.004 286.32);
+  --primary-foreground: oklch(0.21 0.006 285.885);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.938);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
