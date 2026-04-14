@@ -32,13 +32,15 @@ export const POST = async (request: NextRequest) => {
       session = { ...newSession, messages: [] };
     }
 
-    // Convertendo o histórico do Prisma para o tipo CoreMessage[]
-    const history: CoreMessage[] = session.messages.reverse().map((msg) => ({
-      role: (msg.role === "assistant" || msg.role === "gemini"
-        ? "assistant"
-        : "user") as "assistant" | "user",
-      content: msg.content,
-    }));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const history: CoreMessage[] = session.messages
+      .reverse()
+      .map((msg: { role: string; content: string }) => ({
+        role: (msg.role === "assistant" || msg.role === "gemini"
+          ? "assistant"
+          : "user") as "assistant" | "user",
+        content: msg.content,
+      }));
 
     const fullHistoryForTool: CoreMessage[] = [
       ...history,

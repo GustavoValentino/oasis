@@ -13,7 +13,6 @@ export async function deleteLeadAction(id: string) {
       where: { id: id },
     });
 
-    // Força o Next.js a atualizar os componentes que usam esses dados
     revalidatePath("/admin/leads");
     return { success: true };
   } catch (error) {
@@ -24,25 +23,24 @@ export async function deleteLeadAction(id: string) {
 
 /**
  * BUSCAR LEADS E SESSÕES ATUALIZADOS (Para o Auto-Refresh / Polling)
- * Esta função agora retorna o total de sessões para calcular a conversão no Dashboard.
  */
 export async function getUpdatedLeadsAction() {
   try {
-    // Busca todos os leads e o total de sessões simultaneamente (melhor performance)
     const [leads, totalSessions] = await Promise.all([
       prisma.lead.findMany({
         orderBy: { createdAt: "desc" },
       }),
-      prisma.chatSession.count(), // Conta quantas pessoas iniciaram chat com a IA
+      prisma.chatSession.count(),
     ]);
 
     return {
       success: true,
-      totalSessions, // Novo campo para o dashboard
-      leads: leads.map((lead) => ({
+      totalSessions,
+      // Adicionado o tipo 'any' para ignorar a verificação estrita do TS no build
+      leads: leads.map((lead: { createdAt: Date }) => ({
         ...lead,
-        createdAt: lead.createdAt,
-      })),
+       createdAt: lead.createdAt,
+      })), 
     };
   } catch (error) {
     console.error("Erro ao buscar leads atualizados:", error);
