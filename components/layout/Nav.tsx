@@ -86,7 +86,7 @@ export default function Nav() {
             className="h-10 md:h-12 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
           <span className="text-[7.8px] font-bold uppercase tracking-[0.15em] mt-1 text-white leading-tight">
-            Transporte de água potável
+            Fornecimento de água potável
           </span>
         </Link>
 

@@ -12,11 +12,12 @@ interface HeroProps {
   videoSource: string;
 }
 
+// Alteramos as frases para focar na solução e na rede de fornecedores
 const HERO_PHRASES = [
-  "Precisando de Água agora?",
-  "Abastecimento de Água Potável 24h.",
-  "Sua Obra e Piscina com Água de Qualidade.",
-  "Atendemos a todas Regiões de São Paulo.",
+  "Buscando o melhor fornecedor?",
+  "Conectamos você à água potável.",
+  "Sua rede inteligente de abastecimento.",
+  "As melhores fornecedoras em um só lugar.",
 ];
 
 const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
@@ -41,10 +42,13 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
 
   return (
     <section className="relative w-full h-screen flex justify-center items-center overflow-hidden bg-slate-900">
+      {/* Dica: No futuro, troque a imagem de um "caminhão" por uma que mostre 
+          abastecimento de piscina ou indústria para focar no serviço final.
+      */}
       <img
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-10 scale-105"
         src="/images/caminhao.jpg"
-        alt="Caminhão Pipa Oásis"
+        alt="Rede de Abastecimento Oásis"
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-blue-700/30 via-black/50 to-slate-900 z-[1]"></div>
@@ -64,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-blue-200">
-            Disponibilidade Imediata • Laudo de Potabilidade
+            Rede Homologada • Cotação Inteligente
           </span>
         </motion.div>
 
@@ -78,9 +82,10 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
           className="text-blue-50/80 text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light leading-relaxed"
           variants={itemVariants}
         >
-          A Oásis é referência no transporte de água potável para indústrias,
-          residências e agronegócio. Atendimento ágil com frota moderna e
-          monitorada.
+          A Oásis é a sua inteligência em logística de água potável. Mediamos a
+          conexão entre clientes e as melhores fornecedoras de São Paulo,
+          garantindo agilidade, melhor preço e laudos de potabilidade em cada
+          entrega.
         </motion.p>
 
         <motion.div variants={itemVariants}>
@@ -91,6 +96,7 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
             className={`${styles.button}`}
           >
             <Icon icon="mdi:whatsapp" width="24" height="24" />
+
             <span>Fale com um especialista</span>
           </Link>
         </motion.div>
