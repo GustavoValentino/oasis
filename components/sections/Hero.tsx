@@ -12,7 +12,6 @@ interface HeroProps {
   videoSource: string;
 }
 
-// Alteramos as frases para focar na solução e na rede de fornecedores
 const HERO_PHRASES = [
   "Buscando o melhor fornecedor?",
   "Conectamos você à água potável.",
@@ -42,9 +41,6 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
 
   return (
     <section className="relative w-full h-screen flex justify-center items-center overflow-hidden bg-slate-900">
-      {/* Dica: No futuro, troque a imagem de um "caminhão" por uma que mostre 
-          abastecimento de piscina ou indústria para focar no serviço final.
-      */}
       <img
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-10 scale-105"
         src="/images/caminhao.jpg"
@@ -68,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-blue-200">
-            Rede Homologada • Cotação Inteligente
+            Rede Homologada • Atendimento Personalizado
           </span>
         </motion.div>
 
@@ -82,10 +78,10 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
           className="text-blue-50/80 text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light leading-relaxed"
           variants={itemVariants}
         >
-          A Oásis é a sua inteligência em logística de água potável. Mediamos a
-          conexão entre clientes e as melhores fornecedoras de São Paulo,
-          garantindo agilidade, melhor preço e laudos de potabilidade em cada
-          entrega.
+          A Oásis simplifica sua busca por água potável. Mediamos a conexão
+          entre clientes e os fornecedores mais confiáveis de São Paulo,
+          garantindo agilidade, preços competitivos e total suporte na sua
+          cotação.
         </motion.p>
 
         <motion.div variants={itemVariants}>
@@ -96,7 +92,6 @@ const Hero: React.FC<HeroProps> = ({ whatsappLink, videoSource }) => {
             className={`${styles.button}`}
           >
             <Icon icon="mdi:whatsapp" width="24" height="24" />
-
             <span>Fale com um especialista</span>
           </Link>
         </motion.div>
