@@ -1,17 +1,10 @@
 "use client";
 import Link from "next/link";
-import { StaticImageData } from "next/image";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { styles } from "@/app/styles/styles";
 import { motion } from "framer-motion";
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  image: StaticImageData;
-}
+import { Project } from "@/types";
 
 interface FeaturedProjectsProps {
   projects: Project[];
