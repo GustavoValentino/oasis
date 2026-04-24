@@ -15,12 +15,15 @@ interface CountsProps {
 
 const Counts: React.FC<CountsProps> = ({ counts }) => {
   return (
-    <div className="grid grid-cols-1 py-[8%] sm:grid-cols-3 gap-12 px-[2%] md:px-[8%] xl:px-[12%]">
+    <div className="grid grid-cols-1 py-[10%] sm:grid-cols-3 gap-12 px-[2%] md:px-[8%] xl:px-[12%] bg-black/20">
       {counts.map((count, index) => (
-        <div key={index} className="text-center">
+        <div key={index} className="text-center group">
           <h2
-            className="text-7xl sm:text-8xl font-bold leading-none"
-            style={{ WebkitTextStroke: "2px white", color: "transparent" }}
+            className="text-7xl sm:text-8xl font-bold leading-none transition-all duration-500 group-hover:scale-110"
+            style={{
+              WebkitTextStroke: "2px rgba(59, 130, 246, 0.5)", // Stroke azul suave
+              color: "transparent",
+            }}
           >
             <CountUp
               start={0}
@@ -30,7 +33,7 @@ const Counts: React.FC<CountsProps> = ({ counts }) => {
             />
             {count.suffix}
           </h2>
-          <p className="text-gray-300 text-lg font-semibold mt-3">
+          <p className="text-blue-200/60 text-xs uppercase tracking-[0.3em] font-bold mt-4">
             {count.label}
           </p>
         </div>

@@ -2,21 +2,21 @@ import { CountItem } from "@/types";
 
 export const countsData: CountItem[] = [
   {
-    end: 23,
-    duration: 2,
-    suffix: "",
-    label: "Membros",
-  },
-  {
-    end: 1000,
-    duration: 2.5,
+    end: 15,
+    duration: 3,
     suffix: "+",
-    label: "Projetos Entregues",
+    label: "Parceiros Homologados",
   },
   {
-    end: 12,
-    duration: 2.8,
-    suffix: "M",
-    label: "Horas de Edição",
+    end: 500,
+    duration: 3,
+    suffix: "K",
+    label: "Clientes Satisfeitos",
+  },
+  {
+    end: 100,
+    duration: 3,
+    suffix: "%",
+    label: "Segurança Hídrica",
   },
 ];
