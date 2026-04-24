@@ -36,14 +36,18 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
             className="flex items-center gap-4 mb-6"
           >
             <div className="h-[1px] w-12 bg-primary" />
-            <span className="uppercase tracking-[0.4em] text-xs font-bold text-primary italic">
-              nosso portfolio
+            <span className="uppercase tracking-[0.4em] text-xs font-bold text-primary italic text-blue-500">
+              Nossas Conexões
             </span>
           </motion.div>
-          {/* Título "Projetos em Destaque." - Troca de motion.h2 para h2 */}
-          <h2 className="text-2xl sm:text-6xl font-semibold sm:max-w-3xl mt-5 mb-5 leading-tight text-white">
-            Projetos em Destaque.
+          <h2 className="text-4xl sm:text-6xl font-bold sm:max-w-3xl mt-5 mb-5 leading-tight text-white tracking-tighter">
+            Soluções que movem <br />{" "}
+            <span className="text-blue-600">grandes estruturas.</span>
           </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mb-8">
+            Conectamos os setores mais exigentes de São Paulo aos parceiros
+            logísticos ideais para cada necessidade de abastecimento.
+          </p>
         </div>
 
         {/* Botão "Mais Projetos" - Troca de motion.div para div */}

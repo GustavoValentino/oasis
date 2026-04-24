@@ -31,11 +31,12 @@ interface Service {
   img: StaticImageData;
 }
 
-interface Project {
+export interface Project {
   id: number;
   title: string;
   category: string;
   image: StaticImageData;
+  description?: string;
 }
 
 interface Member {
@@ -86,10 +87,9 @@ const WHATSAPP_LINK = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 
 const CHAT_ASSISTANT_LINK = "https://link.do.seu.assistente.com";
 
-const items = ["- Direção Criatividade, Conceito & Estratégia de Marca"];
-
+const items = [" • Qualidade • Atendimento 24h • Logística eficiente"];
 const marqueeContent = (
-  <div className="flex space-x-12">
+  <div className="flex items-center py-4">
     {items.map((text, index) => (
       <span
         key={index}
@@ -97,6 +97,7 @@ const marqueeContent = (
         style={{
           color: "transparent",
           WebkitTextStroke: "2px #fff",
+          lineHeight: "1.2",
         }}
       >
         {text}

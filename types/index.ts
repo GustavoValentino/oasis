@@ -13,6 +13,7 @@ export interface Project {
   title: string;
   category: string;
   image: StaticImageData;
+  description?: string;
 }
 
 export interface Member {
