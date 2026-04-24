@@ -7,7 +7,6 @@ import Hero from "../components/sections/Hero";
 import Services from "../components/sections/ServicesSection";
 import About from "../components/sections/AboutSection";
 import FeaturedProjects from "../components/sections/FeaturedProjects";
-import Team from "../components/sections/TeamSection";
 import Testimonials from "../components/sections/Testimonials";
 import Counts from "../components/sections/CountsSection";
 import Contact from "../components/sections/ContactSection";
@@ -21,7 +20,6 @@ import { brandsData } from "@/constants/brands";
 import { projects } from "@/constants/projects";
 
 import { countsData } from "@/constants/stats";
-import { TEAM_MEMBERS } from "@/constants/team";
 import { testimonials } from "@/constants/testimonials";
 import { servicesData } from "@/constants/services";
 
@@ -37,16 +35,6 @@ export interface Project {
   category: string;
   image: StaticImageData;
   description?: string;
-}
-
-interface Member {
-  id: number;
-  name: string;
-  role: string;
-  letter: string;
-  img: StaticImageData;
-  facebookUrl?: string;
-  instagramUrl?: string;
 }
 
 interface Testimonial {
@@ -114,8 +102,6 @@ export default function Home() {
 
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const homeMembers = TEAM_MEMBERS.slice(0, 4);
-
   return (
     <>
       <Hero whatsappLink={WHATSAPP_LINK} videoSource={heroVideoPath} />
@@ -130,8 +116,6 @@ export default function Home() {
       />
 
       <FeaturedProjects projects={projects} />
-
-      <Team members={homeMembers} />
 
       <Testimonials testimonials={testimonials} />
 
