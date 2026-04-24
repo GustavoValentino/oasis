@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { StaticImageData } from "next/image";
 import { AnimatePresence } from "framer-motion";
 
+// Importe os componentes
 import Hero from "../components/sections/Hero";
 import Services from "../components/sections/ServicesSection";
 import About from "../components/sections/AboutSection";
@@ -12,79 +12,35 @@ import Counts from "../components/sections/CountsSection";
 import Contact from "../components/sections/ContactSection";
 import Blog from "../components/sections/BlogSection";
 import Brands from "../components/sections/BrandSection";
-import { blogPosts } from "@/constants/blog";
 import ChatBot from "../components/chat/ChatBot";
-
 import FloatingActionButtonMenu from "../components/chat/Chat";
+
+// Importe as constantes
+import { blogPosts } from "@/constants/blog";
 import { brandsData } from "@/constants/brands";
 import { projects } from "@/constants/projects";
-
 import { countsData } from "@/constants/stats";
 import { testimonials } from "@/constants/testimonials";
 import { servicesData } from "@/constants/services";
 
-interface Service {
-  id: number;
-  title: string;
-  img: StaticImageData;
-}
-
-export interface Project {
-  id: number;
-  title: string;
-  category: string;
-  image: StaticImageData;
-  description?: string;
-}
-
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  text: string;
-}
-
-interface CountItem {
-  end: number;
-  duration: number;
-  suffix: string;
-  label: string;
-}
-
-interface BlogPost {
-  id: number;
-  title: string;
-  category: string;
-  date: string;
-  image: string | StaticImageData;
-  description: string;
-}
-
-interface Brand {
-  id: number;
-  logo: string | StaticImageData;
-  link: string;
-  alt: string;
-}
-
+// --- CONFIGURAÇÕES ---
 const whatsappNumber = "+5511949995382";
 const whatsappMessage = "Olá, gostaria de solicitar um orçamento!";
-const WHATSAPP_LINK = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-  whatsappMessage,
-)}`;
+const WHATSAPP_LINK = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-const CHAT_ASSISTANT_LINK = "https://link.do.seu.assistente.com";
-
-const items = [" • Qualidade • Atendimento 24h • Logística eficiente"];
+// Marquee corrigido para não cortar
+const items = [" • Qualidade • Atendimento 24h • Logística eficiente "];
 const marqueeContent = (
-  <div className="flex items-center py-4">
+  <div className="flex items-center py-10">
+    {" "}
+    {/* Padding aumentado para a onda não cortar */}
     {items.map((text, index) => (
       <span
         key={index}
-        className="text-[10vw] font-bold uppercase whitespace-nowrap"
+        className="text-[10vw] font-bold uppercase whitespace-nowrap inline-block px-12 italic"
         style={{
           color: "transparent",
-          WebkitTextStroke: "2px #fff",
+          WebkitTextStroke: "1px rgba(255, 255, 255, 0.3)",
           lineHeight: "1.2",
         }}
       >
@@ -93,13 +49,13 @@ const marqueeContent = (
     ))}
   </div>
 );
+
 const heroVideoPath = "";
 const videoUrl =
   "https://www.youtube.com/embed/3v6bk1UcMkE?si=HO1w8iqyaHhKsx0K";
 
 export default function Home() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
@@ -120,6 +76,7 @@ export default function Home() {
       <Testimonials testimonials={testimonials} />
 
       <Counts counts={countsData} />
+
       <Contact />
 
       <Blog blogs={blogPosts} />

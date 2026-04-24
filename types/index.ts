@@ -1,11 +1,10 @@
-// types/index.ts
 import { StaticImageData } from "next/image";
 
 export interface Service {
   id: number;
   title: string;
-  icon: string; // Mudamos de 'img' para 'icon'
-  desc: string; // Adicionamos a descrição para os cards
+  icon: string;
+  desc: string;
 }
 
 export interface Project {
@@ -22,7 +21,7 @@ export interface Member {
   role: string;
   letter: string;
   img: StaticImageData;
-  age?: string; // O "?" torna o campo opcional
+  age?: string;
   location?: string;
   email?: string;
   phone?: string;
@@ -47,12 +46,12 @@ export interface CountItem {
 export interface BlogPost {
   id: number;
   title: string;
-  slug: string; // Adicionado para URLs amigáveis (ex: /blog/o-futuro-do-design)
+  slug: string;
   category: string;
   date: string;
   image: string | StaticImageData;
   description: string;
-  author?: string; // Adicionado para identificação de autoria (opcional)
+  author?: string;
 }
 
 export interface Brand {
