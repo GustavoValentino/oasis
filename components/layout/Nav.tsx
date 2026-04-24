@@ -23,7 +23,7 @@ const navLinks: NavLink[] = [
   { name: "Home", to: "/", stateKey: "home" },
   { name: "Sobre nós", to: "/about", stateKey: "about" },
   {
-    name: "Soluções", // Mudado de "Serviços" para "Soluções" (mais estratégico)
+    name: "Soluções",
     to: "#",
     stateKey: "services",
     sublinks: [
@@ -86,9 +86,9 @@ export default function Nav() {
             priority
             className="h-10 md:h-12 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
-          {/* Slogan atualizado para remover "Transporte" */}
+
           <span className="text-[7.8px] font-bold uppercase tracking-[0.15em] mt-1 text-white leading-tight">
-            Inteligência em fornecimento de água
+            fornecimento de água potável
           </span>
         </Link>
 
@@ -104,7 +104,6 @@ export default function Nav() {
             ))}
           </ul>
 
-          {/* Melhoria: Botão de Cotação em destaque no desktop */}
           <div className="relative flex items-center">
             <input
               type="text"

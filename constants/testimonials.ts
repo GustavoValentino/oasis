@@ -1,39 +1,33 @@
-import { Testimonial } from "@/types";
-
-export const testimonials: Testimonial[] = [
+export const testimonials = [
   {
     id: 1,
-    // Foco: Direção Criativa e Qualidade
-    text: "A direção criativa elevou o nível da nossa comunicação. Qualidade e impacto imediato nas campanhas de lançamento.",
     name: "Ricardo Mendes",
-    role: "Diretor de Marketing, Tech Solutions",
+    role: "Síndico de Condomínio",
+    text: "A Oásis facilitou muito nossa gestão. Antes perdíamos horas ligando para transportadoras, agora centralizamos tudo na plataforma e o atendimento é imediato.",
   },
   {
     id: 2,
-    // Foco: Produção de Vídeo e Profissionalismo
-    text: "Vídeos institucionais impecáveis. Roteiro afiado e produção de altíssimo padrão. Profissionais exemplares!",
-    name: "Juliana Castro",
-    role: "CEO, Startup Fintech",
+    name: "Ana Beatriz",
+    role: "Gerente de Facilities",
+    text: "Excelente curadoria de fornecedores. A água chega sempre com pontualidade e a equipe da Oásis dá todo o suporte na cotação.",
   },
   {
     id: 3,
-    // Foco: Estratégia e Resultados
-    text: "A estratégia de branding foi um divisor de águas. Alinhamento perfeito da identidade com nossos objetivos de crescimento.",
-    name: "André Pires",
-    role: "Gerente de Branding, E-commerce",
+    name: "Eng. Marcos Rocha",
+    role: "Canteiro de Obras",
+    text: "A inteligência logística deles é o diferencial. Conseguiram suprir nossa demanda industrial em tempo recorde com preços muito competitivos.",
   },
+
   {
     id: 4,
-    // Foco: Design de Experiência (UX/UI) e Retenção
-    text: "Design de experiência fundamental para o app. Usabilidade melhorou drasticamente, impactando a retenção de usuários.",
-    name: "Mariana Souza",
-    role: "Head de Produto, App Development",
+    name: "Cláudia Vasconcelos",
+    role: "Administradora de Clube",
+    text: "O enchimento das nossas piscinas foi planejado e executado com perfeição. A transparência na escolha das fontes parceiras nos deu a tranquilidade que precisávamos para a temporada.",
   },
   {
     id: 5,
-    // Foco: Mídias Sociais e ROI
-    text: "Conteúdo para mídias sociais sempre criativo e de alta qualidade. O ROI das campanhas melhorou muito após a parceria.",
-    name: "Roberto Aguiar",
-    role: "Especialista em Growth, Indústria Criativa",
+    name: "Sérgio Tanaka",
+    role: "Diretor de Indústria Alimentícia",
+    text: "Encontrar fornecedores homologados que atendam nossos requisitos sanitários era um desafio. Com a Oásis, a conexão é direta e a logística é impecável.",
   },
 ];
