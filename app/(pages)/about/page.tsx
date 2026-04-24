@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Importações de Componentes
 
-import Team from "../../../components/sections/TeamSection";
 import Testimonials from "../../../components/sections/Testimonials";
 import Brands from "../../../components/sections/BrandSection";
 
@@ -226,7 +225,7 @@ const brandsData: Brand[] = [
 const whatsappNumber = "+5511949995382";
 const whatsappMessage = "Olá, gostaria de solicitar um orçamento!";
 const WHATSAPP_LINK = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-  whatsappMessage
+  whatsappMessage,
 )}`;
 
 export default function Page() {
@@ -234,7 +233,7 @@ export default function Page() {
   return (
     <>
       <About />
-      <Team members={members} />
+
       <Testimonials testimonials={testimonials} />
       <Counts counts={countsData} />
 
