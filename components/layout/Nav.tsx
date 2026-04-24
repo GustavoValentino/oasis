@@ -21,19 +21,20 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { name: "Home", to: "/", stateKey: "home" },
-  { name: "Sobre", to: "/about", stateKey: "about" },
+  { name: "Sobre nós", to: "/about", stateKey: "about" },
   {
-    name: "Serviços",
+    name: "Soluções", // Mudado de "Serviços" para "Soluções" (mais estratégico)
     to: "#",
     stateKey: "services",
     sublinks: [
-      { name: "Abastecimento", to: "/services" },
-      { name: "Piscinas", to: "/services" },
-      { name: "Indústrias", to: "/services" },
-      { name: "Laudos Técnicos", to: "/laudos" },
+      { name: "Abastecimento Ágil", to: "/services" },
+      { name: "Piscinas e Obras", to: "/services" },
+      { name: "Demandas Industriais", to: "/services" },
+      { name: "Segurança Hídrica", to: "/seguranca" }, // Mudado de "Laudos" para o benefício final
     ],
   },
-  { name: "Frota", to: "/projects", stateKey: "projects" },
+  // "Frota" agora é "Parceiros", reforçando que você conecta a uma rede
+  { name: "Rede de Parceiros", to: "/partners", stateKey: "partners" },
   { name: "Blog", to: "/blog", stateKey: "blogs" },
   { name: "Contato", to: "/contact", stateKey: "contact" },
 ];
@@ -79,14 +80,15 @@ export default function Nav() {
         >
           <Image
             src={LogoImage}
-            alt="Oásis - Transporte de Água Potável"
+            alt="Oásis - Inteligência em Água Potável"
             width={180}
             height={60}
             priority
             className="h-10 md:h-12 lg:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
           />
+          {/* Slogan atualizado para remover "Transporte" */}
           <span className="text-[7.8px] font-bold uppercase tracking-[0.15em] mt-1 text-white leading-tight">
-            Fornecimento de água potável
+            Inteligência em fornecimento de água
           </span>
         </Link>
 
@@ -102,6 +104,7 @@ export default function Nav() {
             ))}
           </ul>
 
+          {/* Melhoria: Botão de Cotação em destaque no desktop */}
           <div className="relative flex items-center">
             <input
               type="text"
@@ -135,6 +138,7 @@ export default function Nav() {
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-screen lg:hidden 
           backdrop-blur-sm bg-black/95 text-white p-4 md:p-8 z-40 flex flex-col justify-start 
@@ -170,7 +174,10 @@ export default function Nav() {
           </div>
 
           <div className="text-center mt-12 mb-8 text-xs font-medium text-white/30">
-            <p>© 2026 Oásis Águas Potáveis. Todos os direitos reservados.</p>
+            <p>
+              © 2026 Oásis - Inteligência em Águas. Todos os direitos
+              reservados.
+            </p>
           </div>
         </div>
       </div>

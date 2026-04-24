@@ -31,13 +31,14 @@ const About: React.FC<AboutProps> = ({
           >
             <div className="h-[1px] w-12 bg-primary" />
             <span className=" tracking-[0.4em] text-xs font-bold text-primary italic text-blue-500">
-              NOSSA TRAJETÓRIA
+              NOSSA PROPOSTA
             </span>
           </motion.div>
 
           <h2 className="text-4xl sm:text-6xl font-bold sm:max-w-4xl my-6 leading-[1.1] text-white tracking-tighter">
-            Compromisso com a <span className="text-blue-600">Qualidade</span> e
-            a <span className="text-blue-600">Segurança</span> em cada gota.
+            Conectando você às melhores{" "}
+            <span className="text-blue-600">Fontes</span> e{" "}
+            <span className="text-blue-600">Soluções</span> hídricas.
           </h2>
 
           <div className="flex xl:flex-nowrap flex-wrap gap-10 mt-12">
@@ -52,9 +53,9 @@ const About: React.FC<AboutProps> = ({
                 </span>
               </div>
               <p className="text-lg text-gray-400 leading-relaxed">
-                Garantir o acesso à água potável com excelência logística,
-                atendendo rigorosos padrões de saúde e segurança para suprir as
-                necessidades de toda grande São Paulo.
+                Facilitar o acesso à água potável através de uma curadoria
+                rigorosa de fornecedores, garantindo eficiência logística e o
+                melhor custo-benefício para nossos clientes em São Paulo.
               </p>
             </div>
 
@@ -66,13 +67,13 @@ const About: React.FC<AboutProps> = ({
                 </span>
               </div>
               <p className="text-lg text-gray-400 leading-relaxed mb-6">
-                Ser reconhecida como a transportadora de água mais confiável do
-                estado, inovando em frota e processos para oferecer o melhor
-                custo-benefício com impacto ambiental positivo.
+                Ser a principal plataforma de conexão hídrica do estado,
+                transformando a forma como empresas e residências contratam
+                abastecimento através de tecnologia e confiança.
               </p>
               <Link href="/about" className={`${styles.button}`}>
                 <Icon icon="vaadin:plus" width="30" height="30" />
-                <span>Saiba Mais</span>
+                <span>Saiba mais</span>
               </Link>
             </div>
           </div>
@@ -92,10 +93,11 @@ const About: React.FC<AboutProps> = ({
               </defs>
               <text
                 fill="#3b82f6"
-                className="text-[14px] font-bold uppercase tracking-[5px]"
+                className="text-[14px] font-bold uppercase tracking-[3.5px]"
               >
                 <textPath href="#circlePath" startOffset="0">
-                  • ÁGUA POTÁVEL • FONTE DE ALTA QUALIDADE • LOGÍSTICA 24 HORAS
+                  • SOLUÇÕES INTELIGENTE • QUALIDADE E SEGURANÇA • LOGÍSTICA 24
+                  HORAS
                 </textPath>
               </text>
             </svg>
