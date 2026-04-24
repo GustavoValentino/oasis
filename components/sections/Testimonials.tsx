@@ -6,13 +6,7 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { motion } from "framer-motion";
-
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  text: string;
-}
+import { Testimonial } from "@/types";
 
 interface TestimonialsProps {
   testimonials: Testimonial[];
