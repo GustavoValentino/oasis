@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { FaTiktok } from "react-icons/fa";
 import { motion, Variants } from "framer-motion"; // Importações adicionadas
+import { styles } from "@/app/styles/styles";
 
 // --- Definição das Variantes (Mantidas) ---
 
@@ -68,13 +69,12 @@ const Contact: React.FC = () => {
       className="py-[8%]"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // ALTERADO para 'false' para repetir a animação
+      viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <div className="contact py-[8%] px-[2%] md:px-[8%] h-[800px] relative">
-        {/* Bloco de Título e Formulário */}
+      <div className="contact py-[8%] px-[2%] md:px-[8%] h-auto lg:h-[850px] relative overflow-hidden">
         <motion.div
-          className="team-content w-full lg:w-[60%] mb-10 xl:pr-[20%] relative z-1"
+          className="team-content w-full lg:w-[60%] mb-10 xl:pr-[15%] relative z-10"
           variants={contentBlockVariants}
         >
           <motion.div
@@ -83,13 +83,15 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="h-[1px] w-12 bg-primary" />
-            <span className="uppercase tracking-[0.4em] text-xs font-bold text-primary italic">
-              fale comigo
+            <div className="h-[1px] w-12 bg-blue-600" />
+            <span className="uppercase tracking-[0.4em] text-xs font-bold text-blue-500 italic">
+              Solicite um Orçamento
             </span>
           </motion.div>
-          <h2 className="text-2xl sm:text-4xl font-semibold sm:max-w-3xl mt-5 leading-tight text-white pb-6">
-            Conte-nos Sobre Seu Projeto.
+
+          <h2 className="text-4xl sm:text-5xl font-bold sm:max-w-3xl mt-5 leading-tight text-white pb-6 tracking-tighter">
+            Pronto para garantir seu{" "}
+            <span className="text-blue-600">Abastecimento?</span>
           </h2>
 
           {/* Formulário */}
@@ -111,7 +113,7 @@ const Contact: React.FC = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  placeholder="Telefone"
+                  placeholder="Telefone/Whatsapp"
                   className="w-full p-3 border border-gray-600/50 rounded-lg bg-transparent text-white placeholder-gray-500 transition duration-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-base"
                   required
                 />
@@ -138,8 +140,9 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="btn w-full text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:opacity-90 transition-opacity duration-300 py-3 mt-4 flex items-center justify-center font-bold"
+                className={`${styles.button} important w-full`}
               >
+                <Icon icon="mdi:send" width="30" height="30" />
                 <span>Enviar</span>
               </button>
             </form>
@@ -155,36 +158,54 @@ const Contact: React.FC = () => {
 
           {/* Ícones Sociais */}
           <motion.ul
-            className="text-white grid grid-cols-2 gap-10 absolute right-0 bottom-60 social-icons"
+            className="text-white flex flex-col gap-10 absolute right-0 bottom-[35%] items-end z-20"
             variants={socialContainerVariants}
           >
             {[
-              { icon: "mdi:whatsapp", name: "Whatsapp" },
-              { icon: "ri:linkedin-fill", name: "LinkedIn" },
-              { icon: "ri:facebook-fill", name: "Facebook" },
-              { icon: "iconoir:instagram", name: "Instagram" },
-              { iconComponent: FaTiktok, name: "TikTok" },
-              { icon: "ri:youtube-fill", name: "YouTube" },
+              {
+                icon: "mdi:whatsapp",
+                name: "WhatsApp",
+                color: "bg-green-500",
+                link: "#",
+              },
+              {
+                icon: "mdi:instagram",
+                name: "Instagram",
+                color: "bg-pink-600",
+                link: "#",
+              },
+              {
+                icon: "ri:facebook-fill",
+                name: "Facebook",
+                color: "bg-blue-600",
+                link: "#",
+              },
+              {
+                icon: "ri:linkedin-fill",
+                name: "LinkedIn",
+                color: "bg-blue-700",
+                link: "#",
+              },
             ].map((social, index) => (
-              <motion.li key={index} variants={socialItemVariants}>
+              <motion.li
+                key={index}
+                variants={socialItemVariants}
+                className="w-fit"
+              >
                 <Link
-                  href="/"
-                  className="social-icon relative overflow-hidden p-10 text-xl font-bold h-[100px] rounded-full bg-black flex gap-8 items-center"
+                  href={social.link}
+                  className="group relative flex items-center"
                 >
-                  {social.iconComponent ? (
-                    <social.iconComponent
-                      size={44}
-                      className=" text-black bg-white p-2 rounded-full"
-                    />
-                  ) : (
-                    <Icon
-                      icon={social.icon || ""}
-                      width="44"
-                      height="44"
-                      className=" text-black bg-white p-2 rounded-full"
-                    />
-                  )}
-                  <span>{social.name}</span>
+                  <div className="bg-black/60 backdrop-blur-md border border-white/10 p-3 pl-8 pr-3 rounded-full flex items-center gap-4 hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-300 -mr-6 hover:-mr-2">
+                    <span className="font-bold uppercase tracking-widest text-[10px] md:text-xs">
+                      {social.name}
+                    </span>
+                    <div
+                      className={`${social.color} p-3 rounded-full text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Icon icon={social.icon} width="22" height="22" />
+                    </div>
+                  </div>
                 </Link>
               </motion.li>
             ))}

@@ -21,7 +21,7 @@ const Counts: React.FC<CountsProps> = ({ counts }) => {
           <h2
             className="text-7xl sm:text-8xl font-bold leading-none transition-all duration-500 group-hover:scale-110"
             style={{
-              WebkitTextStroke: "2px rgba(59, 130, 246, 0.5)", // Stroke azul suave
+              WebkitTextStroke: "2px rgba(59, 130, 246, 0.5)",
               color: "transparent",
             }}
           >
