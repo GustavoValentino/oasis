@@ -15,20 +15,6 @@ export interface Project {
   description?: string;
 }
 
-export interface Member {
-  id: number;
-  name: string;
-  role: string;
-  letter: string;
-  img: StaticImageData;
-  age?: string;
-  location?: string;
-  email?: string;
-  phone?: string;
-  facebookUrl?: string;
-  instagramUrl?: string;
-}
-
 export interface Testimonial {
   id: number;
   name: string;
